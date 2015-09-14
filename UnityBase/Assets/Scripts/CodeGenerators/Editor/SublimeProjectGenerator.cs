@@ -19,7 +19,7 @@ namespace ConstantsGenerator {
                 writer.Indent();
 
                 writer.WriteLine("\"folders\":");
-                writer.WriteLine("[ {{ \"folder_exclude_patterns\": [ \"{0}{1}Library\" ]", projectName, Path.DirectorySeparatorChar);
+                writer.WriteLine("[ {{ \"folder_exclude_patterns\": [ \"{0}/Library\" ]", projectName);
                 writer.Indent();
                 writer.WriteLine(", \"file_exclude_patterns\": [ \"*.meta\" ]");
                 writer.WriteLine(", \"path\": \".\"");
@@ -27,7 +27,7 @@ namespace ConstantsGenerator {
                 writer.UnIndent();
 
                 writer.WriteLine("]"); // close folders
-                writer.WriteLine(", \"solution_file\": \"{0}{1}{0}.sln\"", projectName, Path.DirectorySeparatorChar);
+                writer.WriteLine(", \"solution_file\": \"{0}/{0}.sln\"", projectName);
                 writer.UnIndent();
                 writer.WriteLine("}"); // close main
             }
