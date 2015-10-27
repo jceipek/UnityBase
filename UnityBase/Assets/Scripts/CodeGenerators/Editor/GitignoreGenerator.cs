@@ -47,7 +47,7 @@ namespace ConstantsGenerator {
                 writer.WriteLine("._*");
                 writer.WriteLine(".Spotlight-V100");
                 writer.WriteLine(".Trashes");
-                writer.WriteLine("Icon?");
+                writer.WriteLine("Icon\r\r");
                 writer.WriteLine("ehthumbs.db");
                 writer.WriteLine("Thumbs.db");
                 writer.WriteLine();
