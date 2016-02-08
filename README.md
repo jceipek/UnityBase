@@ -91,6 +91,7 @@ You'll need to use the menu item again if you change your tags, levels, or layer
 
 ### MathHelpers (`Scripts/CodeHelpers`)
 **NOTE: I'm considering making MathHelpers extension methods of Mathf or creating partials so that you can pick which functions to include by adding one file per set of related functions**
+
 `MathHelpers.cs` is a static class that provides common math functions Unity doesn't include by default. These include:
 
 
