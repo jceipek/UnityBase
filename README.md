@@ -90,7 +90,7 @@ Unity's API for layers, scenes, and tags rely on strings and ints. If you mistyp
 You'll need to use the menu item again if you change your tags, levels, or layers.
 
 ### MathHelpers (`Scripts/CodeHelpers`)
-**NOTE: I'm considering making MathHelpers extension methods of Mathf or creating partials so that you can pick which functions to include by adding one file per set of related functions**
+**NOTE: I'm considering making `MathHelpers` extension methods of `Mathf` or creating partials so that you can pick which functions to include by adding one file per set of related functions**
 
 `MathHelpers.cs` is a static class that provides common math functions Unity doesn't include by default. These include:
 
@@ -113,7 +113,8 @@ Each Attribute comes in a self-contained folder including an attribute and a cor
 This attribute allows you to specify limits for your `AnimationCurve`s so that you can't accidentally make them extend beyond the desired limits in the inspector. For example:
 
 ```
-[CurveRange, SerializeField] AnimationCurve _my01Curve; // An animation curve that ranges from 0..1 (inclusive) on both axes. I use this for most of my curves.
+// An animation curve that ranges from 0..1 (inclusive) on both axes. I use this for most of my curves.
+[CurveRange, SerializeField] AnimationCurve _my01Curve;
 
 // An animation curve that ranges from 0..1 (inclusive) on the x axis and 0..5 on the y axis
 [CurveRange(0,1,0,5), SerializeField] AnimationCurve _my0105Curve;
@@ -128,13 +129,16 @@ This attribute allows you to specify limits for your `AnimationCurve`s so that y
 These will allow you to use interfaces to write swappable components, leading to reusability and reduced coupling. Note that methods like `GetComponent<>` and `GetInterface<>` allocate memory on the heap, so try to cache the results where possible. You don't want GC spikes!
 
 ```
-MyInterface aGameObjectsMyInterface = aGameObject.GetInterface<MyInterface>(); // Gets a component from aGameObject that implements MyInterface
+// Gets a component from aGameObject that implements MyInterface
+MyInterface aGameObjectsMyInterface = aGameObject.GetInterface<MyInterface>();
 ```
 
 ### Geometry (`Scripts/Geometry`)
 These depend on `Geometry/Base`, which provides `ISegmentsProvider`.
 
 #### TubeRenderer
+Depends on `Scripts/CodeHelpers/MathHelpers` for `Mod`.
+
 Implement `ISegmentsProvider` on a component that provides a set of 3d segment positions and tangents. You can then use `TubeRenderer` to extrude a tube mesh with desired resolution along the provider. `TubeRenderer` computes the parallel transport frame as described [here](https://www.cs.indiana.edu/ftp/techreports/TR425.pdf), which makes it robust to kinks and artifacts you might otherwise see with a naive extrusion implementation.
 
 #### HermiteSpline
