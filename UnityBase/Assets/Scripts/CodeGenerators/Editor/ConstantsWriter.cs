@@ -25,7 +25,7 @@ namespace ConstantsGenerator {
 
             string nameWithExtension = string.Format("{0}{1}", name, extension);
             // If no such file exists yet, use a save window to ask the user for a folder in which to save the file.
-            if (string.IsNullOrEmpty(_filePath)) {
+            if (string.IsNullOrEmpty(filePath)) {
                 string prompt = string.Format("Choose location for {0}", nameWithExtension);
                 string directory = EditorUtility.OpenFolderPanel(prompt, Application.dataPath, "");
 
