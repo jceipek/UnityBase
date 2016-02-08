@@ -9,7 +9,6 @@ public class CurveRangeDrawer : PropertyDrawer {
 
 	public override void OnGUI (Rect position, SerializedProperty property, GUIContent label) {
 		CurveRangeAttribute curveRange = attribute as CurveRangeAttribute;
-		// EditorGUILayout.CurveField(property.animationCurveValue, params GUILayoutOption[] options)
 
 		EditorGUI.BeginProperty (position, label, property);
         if (property.propertyType != SerializedPropertyType.AnimationCurve) {

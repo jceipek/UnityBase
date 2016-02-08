@@ -7,10 +7,7 @@ public class CurveRangeAttribute : PropertyAttribute {
 
 	public CurveRangeAttribute (float[] color) : this(0f, 1f, 0f, 1f, color) {}
 
-	public CurveRangeAttribute (float minX, float maxX, float minY, float maxY) : this(minX, maxX, minY, maxY, new float[] {0f,0f,1f}) {}
-
-	// public CurveRangeAttribute (float minX, float maxX) : this(minX, maxX, Color.blue) {}
-	// public CurveRangeAttribute (float minX, float maxX, float[] color) : this(new Rect(minX, -10000, maxX - minX, 20000f), color) {}
+	public CurveRangeAttribute (float minX, float maxX, float minY, float maxY) : this(minX, maxX, minY, maxY, new float[] {0f,1f,0f}) {}
 
 	public CurveRangeAttribute (float minX, float maxX, float minY, float maxY, float[] color) : this(new Rect(minX, minY, maxX - minX, maxY - minY), color) {}
 

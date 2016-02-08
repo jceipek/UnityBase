@@ -1,7 +1,6 @@
 ﻿using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 [CustomPropertyDrawer(typeof(AnimatorControllerParameterAttribute))]
