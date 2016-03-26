@@ -84,6 +84,22 @@ void SomeMethod() {
 
 You'll need to use the menu item again if you change your animator controller parameters.
 
+#### UnityAudioConstantsGenerator
+Unity provides ExposedAudioParameters for runtime audio manipulation. However, the API for accessing these parameters is brittle; it relies on strings, introducing the potential for runtime errors. Putting this generator in your project will add `Edit -> Generate UnityAudioConstants.cs` to the Unity Menu, which will prompt you for a save location and then create `UnityAudioConstants.cs` there. The file will contain a unique namespace for each `*.mixer` file in your project, with an associated `ExposedAudioParameters` static class. You can then do the following:
+
+```
+using UnityAudioConstants.MyMixer;
+
+// ...
+void SomeMethod() {
+   audioMixer.SetFloat(ExposedAudioParameters.AFloatParam, 1f); // ExposedAudioParameters.AFloatParam is an auto-generated string
+}
+//...
+
+```
+
+You'll need to use the menu item again if you change your exposed audio parameters.
+
 #### UnityConstantsGenerator
 Unity's API for layers, scenes, and tags rely on strings and ints. If you mistype a string or change a number, you'll get an error at runtime. Putting this generator in your project will add `Edit -> Generate UnityConstants.cs` to the Unity Menu, which will prompt you for a save location and then create `UnityConstants.cs` there. The file will contain a `UnityConstants` namespace with static classes containing constants for your tags, levels, and layers.
 
